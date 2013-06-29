@@ -1,0 +1,27 @@
+<%= form_for(:blog, :url => blogs_path, :html => { :method => :post } )  do
+ |f| %>
+
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="label_align">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "text_field_margin" %>
+  </div>
+  <div class="label_align">
+    <%= f.label :contents %>
+    <%= f.text_area :contents, :size => "30x15", :class => "text_area_margin" %>
+  </div>
+  <div class="actions btn_margin">
+    <%= f.submit :class => "btn" %>
+    <%= link_to 'Back', blogs_path, :class => "btn" %>
+  </div>
+<% end %>

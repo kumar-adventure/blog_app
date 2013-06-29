@@ -1,0 +1,31 @@
+<div id="topic">
+  <div id="posts" class="set_border">
+    <a name="post-808"></a>
+    <div class="post odd" id="post_1">
+      <div class="user">
+        <div class="icon">
+          <%= get_user_thumb_image(@user) %>
+        </div>
+      </div>
+      <div class="show_contents contents">
+        <label class="username"><%= @user.full_name %></label>
+        <%= @user.email %>
+      </div>
+    </div>
+  </div>    
+</div>
+<br/>
+<div class="clearer"></div>
+<% if @published_blogs.blank? %>
+  <div id="topic" class="no_comment_text">
+    <h3>There is no published blogs found</h3>
+  </div>
+<% else %>
+  <br/>
+  <div id="topic" class="blog_title">
+    <h3> All Blogs </h3>
+  </div>
+  <%= render :partial => "/blogs/blog", :collection => @published_blogs %>    
+<% end %>
+
+

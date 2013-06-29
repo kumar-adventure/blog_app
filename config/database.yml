@@ -1,0 +1,33 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: blog_app_dev
+  pool: 15
+  username: postgres
+  password:	postgres
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: blog_app_test
+  pool: 15
+  username: postgres
+  password: postgres
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: blog_app_pro
+  pool: 15
+  username: postgres
+  password:	postgres
+  host: localhost
+# development:
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   

@@ -1,0 +1,22 @@
+<div class="blog">
+  <%= render 'blog_post' %>
+</div>
+
+<div class="comment">
+  <% if @comments.blank? %>
+  <div id="topic" class="no_comment_text">
+    <h3>There is no comments found </h3>
+  </div>  
+  <br/>
+  <% else %>
+    <div id="topic" class="blog_title">
+      <h3> All Comments </h3>
+    </div>
+    <%= render :partial => "comment", :collection => @comments %>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+  <div class="comment_form">
+    <%= render :partial => '/comments/form' %>
+  </div>
+<% end %>

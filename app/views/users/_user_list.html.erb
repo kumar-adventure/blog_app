@@ -1,0 +1,17 @@
+<div class="row-fluide">
+  <div class="span12 row_padding">
+    <div class="span2">
+      <%= get_user_thumb_image(user_list) %><br/>
+    </div>
+    <div class="span7">
+      <div class="username">
+        <%= link_to user_list.full_name, "/users/#{user_list.id}/profile" %>
+      </div>
+    </div>
+    <div class="span3">
+      <%=link_to 'View Profile', "/users/#{user_list.id}/profile", :class => "btn" %>
+    </div>        
+  </div>
+</div>
+
+

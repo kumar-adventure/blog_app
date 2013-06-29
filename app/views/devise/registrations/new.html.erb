@@ -1,0 +1,46 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="span4"></div>
+    <div class="span8">
+      <h2>Sign up</h2>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+        <%= devise_error_messages! %>
+        
+        <div><%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        
+        <div><%= f.label :last_name %>
+          <%= f.text_field :last_name, :autofocus => true %>
+        </div>
+        
+        <div><%= f.label :username %>
+          <%= f.text_field :username, :autofocus => true %>
+        </div>
+
+        <div><%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+
+        <div><%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+        
+        <div><%= f.label :email %>
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+
+        <div>
+          <%= image_tag(resource.avatar_url(:thumb)) if resource.avatar? %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+
+        <div><%= f.submit "Sign up" %></div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>  
+  </div>  
+</div>

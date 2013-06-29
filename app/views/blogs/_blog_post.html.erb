@@ -1,0 +1,30 @@
+<div id="topic">
+  <div id="posts">
+    <a name="post-808"></a>
+    <div class="post odd" id="post_1">
+      <div class="user">
+        <div class="username">
+          <%= link_to @blog.user.username, "/users/#{@blog.user.id}/profile" %>
+        </div>
+        <div class="icon">
+          <%= get_user_thumb_image(@blog.user) %>
+        </div>
+      </div>
+      <div class="show_contents contents">
+        <a href="#post-808">
+          <time datetime=""><%= @blog.updated_at %></time>
+        </a>
+        <p class="blog_title"> <%=@blog.title%> 
+          <a href="<%= blog_like_unlike_on_comment_path(@blog) %>" 
+            class="like_image <%= custom_visible(@blog) %>">
+            <%= image_tag(like_dislike_image_url(@blog)) %> 
+          </a><span><%= @blog.blog_like_count%></span>
+        </p>
+        <div class="clearer"></div>
+        <div class="content_margin">
+          <%=@blog.contents%>
+        </div>  
+      </div>
+    </div>
+  </div>    
+</div>

@@ -1,0 +1,35 @@
+<div id="topic">
+  <div id="posts" class="set_border">
+    <a name="post-808"></a>
+    <div class="post odd" id="post_1">
+      <div class="user">
+        <div class="username">
+          <%= link_to current_user.username, "/users/#{current_user.id}/profile" %>
+        </div>
+        <div class="icon">
+          <%= get_user_thumb_image(current_user) %>
+        </div>
+      </div>
+      <div class="show_contents contents">
+        <%= form_for(@comment, :url => blog_comments_path(@blog), :html => { :method => [:post, :put], :remote => true } ) do |f| %>
+          
+          <% if @comment.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+                <% @comment.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="label_align">
+            <%= f.text_area :contents, :class => "text_area_margin", :size => "40x4" %>
+          </div>
+          <div>
+            <%= f.submit "Create Comment" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>    
+</div>

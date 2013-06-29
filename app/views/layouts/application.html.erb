@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "layouts/header" %>
+  <div class="margin_top">
+    <div class="message_div_margin">
+      <%if notice.present? %>
+        <div class="alert_margin alert alert-success">
+          <a data-dismiss="alert" class="close">×</a>
+          <div id="flash_notice"><%= notice %>.</div>
+        </div>
+      <% elsif alert.present? %>
+        <div class="alert alert-error">
+          <a data-dismiss="alert" class="close">×</a>
+          <div id="flash_alert"><%= alert %>.</div>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
+</body>
+</html>

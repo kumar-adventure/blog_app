@@ -1,0 +1,38 @@
+<div id="comment_<%= comment.id %>">
+  <div id="topic">
+    <div id="posts" class="set_border">
+      <a name="post-808"></a>
+      <div class="post odd" id="post_1">
+        <div class="user">
+          <div class="username">
+            <%= link_to comment.user.username, "/users/#{comment.user.id}/profile" %>
+          </div>
+          <div class="icon">
+            <%= get_user_thumb_image(comment.user) %>
+          </div>
+        </div>
+        <div class="show_contents contents">
+          <a href="#post-808">
+            <time datetime=""><%= comment.created_at %></time>
+          </a>
+          <p class="title_text"></p>
+          <div class="clearer"></div>
+          <div class="content_margin">
+            <%= comment.contents %>
+          </div>  
+          <ul class="actions">
+            <% if can? :edit, comment %>
+              <li>
+                <%= link_to 'Edit', edit_blog_comment_path(comment.blog,comment), :remote => true %>
+              </li>
+              <li>
+                <%= link_to 'Destroy', blog_comment_path(comment.blog,comment), method: :delete, data: { confirm: 'Are you sure?' },
+                    :remote => true %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>

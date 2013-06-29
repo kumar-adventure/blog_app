@@ -1,0 +1,39 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <li>
+            <%= link_to 'Home', root_path, :class => "scroller" %>
+          </li>
+          <% if current_user %>
+            <li>
+              <%= link_to 'Blog', blogs_path, 
+                  :class => "btn-header" %>
+            </li>
+            <li>
+              <%= link_to 'Setting', edit_user_registration_path, 
+                  :class => "btn-header" %>
+            </li>
+            <li>
+              <%= link_to 'Profile', "/users/#{current_user.id}/profile", 
+                  :class => "btn-header" %>
+            </li>
+            <li>
+              <%= link_to 'Log out', destroy_user_session_path, 
+                  :method => :delete, :class => "btn-header" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Sign in', new_user_session_path, :class => "btn-header"
+              %>
+            </li>
+            <li>
+              <%= link_to 'Sign up', new_user_registration_path, :class => "btn-header" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

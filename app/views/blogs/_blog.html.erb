@@ -1,0 +1,35 @@
+  <div id="topic">
+    <div id="posts">
+      <a name="post-808"></a>
+      <div class="post odd" id="post_1">
+        <div class="user">
+          <div class="username">
+            <%= link_to blog.user.username, "/users/#{blog.user.id}/profile" %>
+          </div>
+          <div class="icon">
+            <%= get_user_thumb_image(blog.user) %>
+          </div>
+        </div>
+        <div class="contents">
+          <time datetime=""><%= blog.updated_at %></time>
+          <p><span class="title_text">Title:</span> <%=blog.title%>
+            <a href="<%= blog_like_unlike_path(blog) %>" class="like_image 
+              <%= custom_visible(blog) %>">
+              <%= image_tag(like_dislike_image_url(blog)) %> 
+            </a><%= blog.blog_like_count%>
+          </p>
+          <p></p>
+          <div class="clearer"></div>
+          <div class="content_margin">
+            <%=blog.contents%>
+          </div>  
+          <ul class="actions">
+            <li><%= link_to 'Show', blog_path(blog) %></li>
+            <li><%= link_to 'Edit', edit_blog_path(blog) %></li>
+            <li><%= link_to 'Destroy', blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li><%= link_to 'Publish', blog_publish_path(blog) unless blog.is_published %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
